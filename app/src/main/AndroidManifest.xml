@@ -13,6 +13,11 @@
         android:theme="@style/Theme.CustomerIntake"
         tools:targetApi="31">
         <activity
+            android:name=".UI.JobDetails"
+            android:exported="false"
+            android:label="Job Details"
+            android:parentActivityName=".UI.CustomerDetails" />
+        <activity
             android:name=".UI.CustomerDetails"
             android:exported="false"
             android:label="Customer Details"

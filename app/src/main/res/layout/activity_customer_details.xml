@@ -7,4 +7,144 @@
     android:layout_height="match_parent"
     tools:context=".UI.CustomerDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CDD2B48C"
+        android:orientation="vertical"
+        android:paddingTop="100sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Customer Information"
+                android:textColor="#D2B48C"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="First Name:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/customername"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:hint="John"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Last Name:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/customerlast"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:hint="Doe"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Phone Number:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/phonenumber"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:hint="555-555-5555"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/customersave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Space
+                android:layout_width="50sp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/customerdelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/jobFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40sp"
+        android:layout_marginBottom="80sp"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
