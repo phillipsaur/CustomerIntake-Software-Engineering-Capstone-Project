@@ -11,7 +11,7 @@ import com.phillipthai.customerintake.dao.JobDAO;
 import com.phillipthai.customerintake.entities.Customer;
 import com.phillipthai.customerintake.entities.Job;
 
-@Database(entities = {Customer.class, Job.class}, version = 1, exportSchema = false)
+@Database(entities = {Customer.class, Job.class}, version = 2, exportSchema = false)
 public abstract class CustomerDatabase extends RoomDatabase {
     public abstract CustomerDAO customerDAO();
 

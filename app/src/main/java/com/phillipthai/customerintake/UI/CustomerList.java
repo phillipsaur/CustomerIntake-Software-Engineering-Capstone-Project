@@ -6,11 +6,19 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.phillipthai.customerintake.R;
+import com.phillipthai.customerintake.database.Repository;
+import com.phillipthai.customerintake.entities.Customer;
+
+import java.util.List;
 
 public class CustomerList extends AppCompatActivity {
+
+    private Repository repository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +34,13 @@ public class CustomerList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        RecyclerView recyclerView = findViewById(R.id.customerRV);
+        repository = new Repository(getApplication());
+        List<Customer> allCustomers = repository.getmAllCustomers();
+        final CustomerAdapter customerAdapter = new CustomerAdapter(this);
+        recyclerView.setAdapter(customerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        customerAdapter.setCustomers(allCustomers);
     }
 }

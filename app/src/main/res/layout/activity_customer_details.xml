@@ -54,7 +54,7 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/customername"
+                android:id="@+id/customerfirst"
                 android:layout_width="150sp"
                 android:layout_height="match_parent"
                 android:hint="John"
@@ -106,6 +106,7 @@
                 android:layout_width="150sp"
                 android:layout_height="match_parent"
                 android:hint="555-555-5555"
+                android:inputType="phone"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -134,6 +135,11 @@
                 android:layout_height="wrap_content"
                 android:text="Delete" />
         </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/customerdetailRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>
