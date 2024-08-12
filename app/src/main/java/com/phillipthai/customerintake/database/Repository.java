@@ -91,6 +91,19 @@ public class Repository {
         return mAllJobs;
     }
 
+    public List<Job> getAssociatedJobs(int CustomerID) {
+        databaseExecutor.execute(() -> {
+            mAllJobs = mJobDAO.getAssociatedJobs(CustomerID);
+        });
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return mAllJobs;
+    }
+
     public void insert(Job job) {
         databaseExecutor.execute(() -> {
             mJobDAO.insert(job);

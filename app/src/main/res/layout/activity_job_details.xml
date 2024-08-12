@@ -7,4 +7,141 @@
     android:layout_height="match_parent"
     tools:context=".UI.JobDetails">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CDD2B48C"
+        android:orientation="vertical"
+        android:paddingTop="100sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Job Information"
+                android:textColor="#D2B48C"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Job Name:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/jobname"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:hint="Ceramic Tint"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Price:"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/jobprice"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:hint="1000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp">
+
+            <TextView
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="20sp"
+                android:text="Job Date:"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/jobDate"
+                android:layout_width="150sp"
+                android:layout_height="match_parent"
+                android:background="#FFEB3B"
+                android:gravity="center"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="15sp"
+                android:src="@drawable/baseline_edit_calendar_24" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/jobsave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save" />
+
+            <Space
+                android:layout_width="50sp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/jobdelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

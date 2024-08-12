@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.phillipthai.customerintake.R;
@@ -16,13 +18,15 @@ import com.phillipthai.customerintake.database.Repository;
 import com.phillipthai.customerintake.entities.Customer;
 import com.phillipthai.customerintake.entities.Job;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerDetails extends AppCompatActivity {
 
     String firstName;
     String lastName;
     int customerID;
     String phoneNumber;
-    String pNumber;
     EditText editPhone;
     EditText editFirst;
     EditText editLast;
@@ -62,6 +66,18 @@ public class CustomerDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        RecyclerView recyclerView = findViewById(R.id.jobRV);
+        final JobAdapter jobAdapter = new JobAdapter(this);
+        recyclerView.setAdapter(jobAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<Job> filteredJobs = new ArrayList<>();
+        for (Job j : repository.getAllJobs()) {
+            if (j.getCustomerID() == customerID) {
+                filteredJobs.add(j);
+            }
+        }
+        jobAdapter.setJobs(filteredJobs);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
