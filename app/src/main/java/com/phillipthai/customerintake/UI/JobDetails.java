@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -53,6 +54,8 @@ public class JobDetails extends AppCompatActivity {
         job = getIntent().getStringExtra("name");
         editName = findViewById(R.id.jobname);
         editName.setText(job);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Log.d("JobDetails", "Price received: " + price);
 
@@ -158,7 +161,7 @@ public class JobDetails extends AppCompatActivity {
 
                 if (jobToDelete != null) {
                     repository.delete(jobToDelete);
-                    Toast.makeText(this, customerID + " " + editName.getText().toString() + " " + jobID + " deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, editName.getText().toString() + " was deleted", Toast.LENGTH_SHORT).show();
                 }
             }
             startActivity(new Intent(JobDetails.this, CustomerList.class));
@@ -168,5 +171,16 @@ public class JobDetails extends AppCompatActivity {
 
     private void updateLabelStart() {
         editJobDate.setText(sdf.format(myCalendarStart.getTime()));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            Intent intent = new Intent(this, CustomerList.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
