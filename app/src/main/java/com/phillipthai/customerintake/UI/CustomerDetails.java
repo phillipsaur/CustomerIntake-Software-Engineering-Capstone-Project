@@ -132,6 +132,8 @@ public class CustomerDetails extends AppCompatActivity {
                             , Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CustomerDetails.this, CustomerList.class);
                     startActivity(intent);
+                } else {
+                    Toast.makeText(CustomerDetails.this,"Cannot delete customer. Please delete associated job first.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
