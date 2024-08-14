@@ -21,6 +21,11 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     private final Context context;
     private final LayoutInflater mInflater;
 
+    public void setFilteredList(List<Customer> filteredList) {
+        this.mCustomers = filteredList;
+        notifyDataSetChanged();
+    }
+
     public CustomerAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
         this.context = context;

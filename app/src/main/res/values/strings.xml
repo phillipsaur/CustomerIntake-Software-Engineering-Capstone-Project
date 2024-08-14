@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CustomerIntake</string>
+    <string name="search">search</string>
 </resources>
