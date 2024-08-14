@@ -165,4 +165,17 @@ public class Repository {
 
         return job[0];
     }
+
+    public List<Job> getJobsForCustomer(int customerID) {
+        final List<Job>[] jobsForCustomer = new List[1];
+        databaseExecutor.execute(() -> jobsForCustomer[0] = mJobDAO.getJobsForCustomer(customerID));
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        return jobsForCustomer[0];
+    }
 }

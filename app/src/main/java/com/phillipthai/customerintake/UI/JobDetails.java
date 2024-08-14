@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class JobDetails extends AppCompatActivity {
@@ -107,6 +109,11 @@ public class JobDetails extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                List<Job> jobsForCustomer = repository.getJobsForCustomer(customerID);
+                if (jobsForCustomer != null && !jobsForCustomer.isEmpty() && jobID == -1) {
+                    Toast.makeText(JobDetails.this, "This customer already has a job. Cannot add another job.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 String jobDateStr = editJobDate.getText().toString();
                 Date jobStartDate = null;
 
@@ -151,23 +158,10 @@ public class JobDetails extends AppCompatActivity {
 
                 if (jobToDelete != null) {
                     repository.delete(jobToDelete);
+                    Toast.makeText(this, customerID + " " + editName.getText().toString() + " " + jobID + " deleted", Toast.LENGTH_SHORT).show();
                 }
             }
             startActivity(new Intent(JobDetails.this, CustomerList.class));
-
-//            Job jobToDelete = null;
-//
-//            for (Job job : repository.getAllJobs()) {
-//                if (job.getJobID() == jobID) {
-//                    jobToDelete = job;
-//                    break;
-//                }
-//            }
-//            if (jobToDelete != null) {
-//                repository.delete(jobToDelete);
-//                Intent intent = new Intent(JobDetails.this, CustomerList.class);
-//                startActivity(intent);
-//            }
         });
 
     }

@@ -30,4 +30,7 @@ public interface JobDAO {
 
     @Query("SELECT * FROM JOBS WHERE jobID = :jobID LIMIT 1")
     Job getJobById(int jobID);
+
+    @Query("SELECT * FROM JOBS WHERE CUSTOMERID = :customerID")
+    List<Job> getJobsForCustomer(int customerID);
 }

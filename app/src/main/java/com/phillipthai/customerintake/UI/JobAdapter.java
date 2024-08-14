@@ -39,7 +39,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
                     int position = getAdapterPosition();
                     final Job current = mJobs.get(position);
                     Intent intent = new Intent(context, JobDetails.class);
-                    intent.putExtra("id", current.getCustomerID());
+                    intent.putExtra("id", current.getJobID());
                     intent.putExtra("name", current.getJobName());
                     intent.putExtra("price", current.getPrice());
                     intent.putExtra("customerID", current.getCustomerID());
