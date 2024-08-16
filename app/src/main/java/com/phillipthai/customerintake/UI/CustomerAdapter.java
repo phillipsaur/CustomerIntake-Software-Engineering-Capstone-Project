@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.phillipthai.customerintake.R;
 import com.phillipthai.customerintake.entities.Customer;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
@@ -34,10 +37,12 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView customerItemView;
+        private final TextView customerItemView2;
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
             customerItemView = itemView.findViewById(R.id.customerTextView);
+            customerItemView2 = itemView.findViewById(R.id.customerTextView2);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -66,9 +71,12 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         if (mCustomers != null) {
             Customer current = mCustomers.get(position);
             String name = current.getFirstName() + " " + current.getLastName();
+            String phone = current.getPhoneNumber();
             holder.customerItemView.setText(name);
+            holder.customerItemView2.setText(phone);
         } else {
             holder.customerItemView.setText("No customer name.");
+            holder.customerItemView2.setText("No phone number.");
         }
     }
 
