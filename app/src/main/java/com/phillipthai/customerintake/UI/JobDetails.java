@@ -30,7 +30,7 @@ import java.util.Locale;
 
 public class JobDetails extends AppCompatActivity {
     String job;
-    double price;
+    int price;
     int customerID;
     int jobID;
     Job currentJob;
@@ -59,7 +59,7 @@ public class JobDetails extends AppCompatActivity {
 
         Log.d("JobDetails", "Price received: " + price);
 
-        price = getIntent().getDoubleExtra("price", 0.00);
+        price = getIntent().getIntExtra("price", 0);
 
         Log.d("JobDetails", "Price received: " + price);
 
@@ -137,14 +137,14 @@ public class JobDetails extends AppCompatActivity {
                     }
                     job = new Job(jobID,
                             editName.getText().toString(),
-                            Double.parseDouble(editPrice.getText().toString()),
+                            Integer.parseInt(editPrice.getText().toString()),
                             jobStartDate,
                             customerID);
                     repository.insert(job);
                 } else {
                     job = new Job(jobID,
                             editName.getText().toString(),
-                            Double.parseDouble(editPrice.getText().toString()),
+                            Integer.parseInt(editPrice.getText().toString()),
                             jobStartDate,
                             customerID);
                     repository.update(job);

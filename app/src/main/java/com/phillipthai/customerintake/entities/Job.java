@@ -10,11 +10,11 @@ public class Job {
     @PrimaryKey(autoGenerate = true)
     private int jobID;
     private String jobName;
-    private double price;
+    private int price;
     private Date jobDate;
     private int customerID;
 
-    public Job(int jobID, String jobName, double price, Date jobDate, int customerID) {
+    public Job(int jobID, String jobName, int price, Date jobDate, int customerID) {
         this.jobID = jobID;
         this.jobName = jobName;
         this.price = price;
@@ -38,11 +38,11 @@ public class Job {
         this.jobName = jobName;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
