@@ -10,8 +10,8 @@ android {
         applicationId = "com.phillipthai.customerintake"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = "1.02"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -41,10 +41,18 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+
     val room_version = "2.6.1"
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
+    testImplementation("org.robolectric:robolectric:4.9")
+
+    // Add Mockito for unit testing
+    testImplementation ("org.mockito:mockito-core:5.4.0")
+
+    // Optional: Add Mockito for Android instrumentation tests
+    androidTestImplementation ("org.mockito:mockito-android:5.4.0")
 
 }
