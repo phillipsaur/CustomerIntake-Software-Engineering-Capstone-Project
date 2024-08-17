@@ -1,0 +1,165 @@
+@startuml
+'https://plantuml.com/class-diagram
+'left to right direction
+
+class CustomerAdapter
+class CustomerDetails
+class CustomerList
+class JobAdapter
+class JobDetails
+class MainActivity
+
+class MainActivity {
+onCreate()
+}
+
+class CustomerList {
+Repository repository
+SearchView searchView
+List<Customer> allCustomers
+CustomerAdapter customerAdapter
+onCreate()
+onCreateOptionsMenu()
+filterList()
+}
+
+class CustomerDetails {
+String firstName
+String lastName
+int CustomerID
+String phoneNumber
+EditText editPhone
+EditText editFirst
+EditText editLast
+Repository repository
+Customer currentCustomer
+int numJobs
+onCreate()
+}
+
+class JobDetails {
+String job
+int price
+int customerID
+int jobID
+Job currentJob
+EditText editName
+EditText editPrice
+Repository repository
+TextView editJobDate
+DatePickerDialog.OnDateSetListener jDate
+Calendar myCalendarStart
+String myFormat
+SimpleDateFormat sdf
+onCreate()
+updateLabelStart()
+}
+
+class JobAdapter {
+List<Job> mJobs
+Context context
+LayoutInflater mInflater
+JobViewHolder onCreateViewHolder()
+onBindViewHolder()
+setJobs()
+getItemCount()
+}
+
+class CustomerAdapter {
+List<Customer> mCustomers
+Context context
+LayoutInflater mInflater
+CustomerViewHolder onCreateViewHolder()
+onBindViewHolder()
+setCustomers()
+setFilteredList()
+getItemCount()
+}
+
+class Repository {
+JobDAO mJobDAO
+CustomerDAO mCustomerDAO
+List<Customer> mAllCustomers
+List<Job> mAllJobs
+int NUMBER_OF_THREADS
+ExecutorService databaseExecutor
+getmAllCustomers()
+insert(Customer customer)
+update(Customer customer)
+delete(Customer customer)
+getAllJobs()
+getJobsForCustomer()
+insert(Job job)
+update(Job job)
+delete(Job job)
+getCustomerById()
+getJobById()
+}
+
+class CustomerDatabase {
+CustomerDatbase Instance
+customerDAO()
+JobDAO()
+getDatabase()
+}
+
+interface CustomerDAO {
+insert()
+update()
+delete()
+getAllCustomers()
+getCustomerById()
+}
+
+interface JobDAO {
+insert()
+update()
+delete()
+getAllJobs()
+getAssociatedJobs()
+getJobById()
+getJobsForCustomer()
+}
+
+entity Customer {
+int customerID
+String firstName
+String lastName
+String phoneNumber
+Customer()
+getCustomerID()
+getFirstName()
+getLastName()
+getPhoneNumber()
+}
+
+entity Job {
+int JobID
+String jobName
+int price
+Date jobDate
+int customerID
+Job()
+getJobID()
+getJobName()
+getPrice()
+getJobDate()
+getCustomerID()
+}
+
+MainActivity -->CustomerList
+CustomerList --> CustomerAdapter
+CustomerList --> Repository
+CustomerDetails --> JobAdapter
+JobDetails --> Repository
+Repository --> CustomerDatabase
+CustomerDatabase --> CustomerDAO
+CustomerDatabase --> JobDAO
+Repository --> Customer
+Repository --> Job
+JobAdapter --> JobDetails
+CustomerAdapter --> CustomerDetails
+Job --> Customer
+
+
+@enduml
